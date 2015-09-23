@@ -42,6 +42,13 @@ To activate the expand/collapse animation built into the spoilerBox, simply pass
 <div decorator="spoilerBox:1337,'ease-in-out'" class="collapsed">
 ```
 
+All used CSS class-names are specified in variables of the decorator, which can be changed when necessary. For a list of variables, please have a look at the bottom of the [decorator](https://raw.githubusercontent.com/idis-fhws/ractive-decorators-spoilerBox/master/src/ractive-decorators-spoilerBox.js). Please be aware, that the reference Stylesheet will only work with the default class-names. An example:
+```js
+Ractive.decorators.spoilerBox.spoilerBoxClassName = 'coolBox';
+Ractive.decorators.spoilerBox.collapsedClassName = 'closed';
+Ractive.decorators.spoilerBox.expandedClassName = 'open';
+```
+
 ## License
 
 Copyright (c) 2015 [IDIS FHWS](http://idis.fhws.de). Licensed MIT
