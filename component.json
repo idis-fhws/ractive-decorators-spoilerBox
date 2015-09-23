@@ -1,0 +1,16 @@
+{
+	"name": "ractive-decorators-spoilerBox",
+	"repo": "git://github.com/idis-fhws/ractive-decorators-spoilerBox",
+	"description": "ractive-decorators-spoilerBox",
+	"version": "0.1.0",
+	"keywords": [],
+	"dependencies": {
+		"ractivejs/ractive": "^0.5.4"
+	},
+	"development": {},
+	"license": "MIT",
+	"main": "ractive-decorators-spoilerBox.js",
+	"scripts": [
+		"ractive-decorators-spoilerBox.js"
+	]
+}
