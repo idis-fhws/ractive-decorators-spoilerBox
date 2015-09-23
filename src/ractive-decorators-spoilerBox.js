@@ -113,7 +113,7 @@
 			addClass(headerBtn, spoilerBoxDecorator.navButtonClassName);
 			header.appendChild(headerBtn);
 		}
-		addClass(contentWrapper, spoilerBoxDecorator.animationWrapperClassName);
+		addClass(contentWrapper, spoilerBoxDecorator.contentWrapperClassName);
 		node.removeChild(content);
 		contentWrapper.appendChild(content);
 		node.appendChild(contentWrapper);
@@ -170,6 +170,7 @@
 		
 		return {
 			teardown: function(){
+				header.removeEventListener('click', onHeaderClick);
 			}
 		};
 	};
@@ -180,7 +181,7 @@
 	spoilerBoxDecorator.headerClassName = 'header';
 	spoilerBoxDecorator.navButtonClassName = 'navBtn';
 	spoilerBoxDecorator.contentClassName = 'content';
-	spoilerBoxDecorator.animationWrapperClassName = 'animationWrapper';
+	spoilerBoxDecorator.contentWrapperClassName = 'animationWrapper';
 	
 	spoilerBoxDecorator.collapsingClassName = 'collapsing';
 	spoilerBoxDecorator.collapsedClassName = 'collapsed';
