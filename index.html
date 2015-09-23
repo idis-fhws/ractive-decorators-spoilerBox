@@ -7,28 +7,44 @@
 	<!-- CSS -->
 	<link href='http://fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
 	<link rel='stylesheet' href='demo/main.css'>
+	<link rel='stylesheet' href='src/spoilerBox.css'>
 
-	<!-- TODO add styles specific to this demo -->
 	<style type='text/css'>
-
+		.spoilerBox > div.header {
+			background: url('demo/idisSmall.png') 10px center/1.8em no-repeat, linear-gradient(to bottom, #7fc6e6 0%, #61b2db 100%);
+		}		
+		#idisLogo {
+			float: left;
+			height: 150px;
+			margin: 5px;
+			border-radius: 5px;
+		}
+		.spoilerBox div.content p {
+			font-size: 12px;
+		}
 	</style>
 </head>
 
 <body>
 
 	<!-- if the project is on GitHub, add a fork me button! -->
-	<!-- <a class='forkme' href='https://github.com/you/repo'>Fork me on GitHub</a> -->
+	<a class='forkme' href='https://github.com/idis-fhws/ractive-decorators-spoilerBox'>Fork me on GitHub</a>
 
 	<header>
-		<h1>Ractive.js spoilerBox decorator plugin</h1>
+		<h1>Ractive.js SpoilerBox decorator plugin</h1>
 		<p class='strap'>
-			<span class='download'>download: <a href='[TODO]'>ractive-decorators-spoilerBox.js</a></span>
-			<span class='more-plugins'>more plugins at <a href='http://docs.ractivejs.org/latest/plugins'>docs.ractivejs.org/latest/plugins</a></span>
+			<span class='download'>download: <a href='https://raw.githubusercontent.com/idis-fhws/ractive-decorators-spoilerBox/master/src/ractive-decorators-spoilerBox.js'>ractive-decorators-spoilerBox.js</a></span>
+			<span class='more-plugins'>more plugins at <a href='http://docs.ractivejs.org/latest/plugins'>ractivejs.org</a></span>
 		</p>
 	</header>
 
 	<main>
-		<p>TODO A description of the plugin goes here...</p>
+		<p>
+			SpoilerBox is a box consisting of a header and a content-div implementing the functionality to collapse and expand its content when clicking on its header. Designed as customizable as possible, it can be used in most environments.<br/>
+			Due to various CSS-restrictions, the optional vertical collapse animation was implemented in JavaScript (enabled by passing a duration in ms and an optional easing to the decorator).<br/>
+			Other animations should be straight forward using only css and transitions and the altering (depending on the status of the spoilerBox) css-classes.<br/><br/>
+			The reference Stylesheet can be downloaded from <a href="https://raw.githubusercontent.com/idis-fhws/ractive-decorators-spoilerBox/master/src/spoilerBox.css">here</a>.
+		</p>
 
 		<div id='demo' class='clearfix'></div>
 
@@ -36,15 +52,29 @@
 		<pre id='demo-code-view' class='prettyprint lang-js'></pre>
 	</main>
 
-	<!-- add additional info such as your homepage here, if you want -->
 	<footer>
-		<p>Copyright &copy; 2015 Markus Ebner. Licensed MIT</p>
+		<p>Copyright &copy; 2015 <a href="http://idis.fhws.de">IDIS FHWS</a>. Licensed MIT</p>
 	</footer>
 
 	<!-- Demo template -->
 	<script id='demo-template' type='text/ractive'>
-		<!-- TODO -->
-		<p>This is a demo of the plugin</p>
+		<div decorator="spoilerBox:1000,'ease-in-out'">
+			<div class="header">SpoilerBox in reference-design with an easing animation</div>
+			<div class="content">
+				<img id="idisLogo" src="demo/idis.png"/>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est. Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut tristique vitae, sagittis vel odio. Maecenas convallis ullamcorper ultricies. Curabitur ornare, ligula semper consectetur sagittis, nisi diam iaculis velit, id fringilla sem nunc vel mi. Nam dictum, odio nec pretium volutpat, arcu ante placerat erat, non tristique elit urna et turpis. Quisque mi metus, ornare sit amet fermentum et, tincidunt et orci. Fusce eget orci a orci congue vestibulum. Ut dolor diam, elementum et vestibulum eu, porttitor vel elit. Curabitur venenatis pulvinar tellus gravida ornare. Sed et erat faucibus nunc euismod ultricies ut id justo. Nullam cursus suscipit nisi, et ultrices justo sodales nec. Fusce venenatis facilisis lectus ac semper. Aliquam at massa ipsum. Quisque bibendum purus convallis nulla ultrices ultricies. Nullam aliquam, mi eu aliquam tincidunt, purus velit laoreet tortor, viverra pretium nisi quam vitae mi. Fusce vel volutpat elit. Nam sagittis nisi dui.</p>
+
+				<!-- Nested spoilerbox -->
+				<div decorator="spoilerBox" class="collapsed">
+					<div class="header">Nested SpoilerBox non-animated initially collapsed</div>
+					<div class="content">
+						<img id="idisLogo" src="demo/idis.png"/>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est. Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut tristique vitae, sagittis vel odio. Maecenas convallis ullamcorper ultricies. Curabitur ornare, ligula semper consectetur sagittis, nisi diam iaculis velit, id fringilla sem nunc vel mi. Nam dictum, odio nec pretium volutpat, arcu ante placerat erat, non tristique elit urna et turpis. Quisque mi metus, ornare sit amet fermentum et, tincidunt et orci. Fusce eget orci a orci congue vestibulum. Ut dolor diam, elementum et vestibulum eu, porttitor vel elit. Curabitur venenatis pulvinar tellus gravida ornare. Sed et erat faucibus nunc euismod ultricies ut id justo. Nullam cursus suscipit nisi, et ultrices justo sodales nec. Fusce venenatis facilisis lectus ac semper. Aliquam at massa ipsum. Quisque bibendum purus convallis nulla ultrices ultricies. Nullam aliquam, mi eu aliquam tincidunt, purus velit laoreet tortor, viverra pretium nisi quam vitae mi. Fusce vel volutpat elit. Nam sagittis nisi dui.</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
 	</script>
 
 	<!-- Dependencies -->
@@ -53,7 +83,6 @@
 
 	<!-- Demo code -->
 	<script id='demo-code'>
-		// TODO
 		ractive = new Ractive({
 			el: 'demo',
 			template: '#demo-template'
